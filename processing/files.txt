@@ -1,0 +1,15 @@
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20023352017365.L3b_MC_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030012018031.L3b_MC_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030322018059.L3b_MC_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20023352002365.L3b_MO_NSST.nc 
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030012003031.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030322003059.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20073352007365.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20080012008031.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20080322008060.L3b_MO_NSST.nc 
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20123362012366.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20130012013031.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20130322013059.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20173352017365.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20180012018031.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20180322018059.L3b_MO_NSST.nc
