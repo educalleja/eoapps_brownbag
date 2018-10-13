@@ -9,21 +9,39 @@
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
     crossorigin=""></script>
   <style>
-    #mapid {
-      height: 100vh;
+    #slider {
+      width: 200px;
+    }
+    .menu {
+      display: inline-block;
+    }
+    #label_year { 
+      font-size: 72px;
+    }
+    #colorbar {
+      width: 400px;
+      display: block;
     }
   </style>
 
 </head>
 
 <body>
-  <div id="mapid"></div>
+  <img src="static/img/anomalies_sst_2003.png" id="sst_anomalies_img" />
+  <div class="menu">
+    <div id="label_year">2013</div>
+    <input type="range" min="2003" max="2018" value="2013" class="slider" id="slider">
+  </div>
+  <img src="static/img/colorbar.png" id="colorbar" />
 </body>
 <script>
-  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-  var wmsLayer = L.tileLayer.wms('https://demo.boundlessgeo.com/geoserver/ows?', {
-    layers: 'nasa:bluemarble'
-  }).addTo(mymap)
+  var slider = document.getElementById("slider");
+  var image = document.getElementById("sst_anomalies_img");
+  var label = document.getElementById("label_year");
+  slider.oninput = function () {
+    image.setAttribute('src', `static/img/anomalies_sst_${this.value}.png`)
+    label.innerHTML = this.value;
+  }
 </script>
 
 </html>
