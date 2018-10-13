@@ -1,4 +1,4 @@
-https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030012018031.L3b_MO_NSST.nc
+https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030012018031.L3b_MC_NSST.nc
 https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20030012003031.L3b_MO_NSST.nc
 https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20040012004031.L3b_MO_NSST.nc
 https://oceandata.sci.gsfc.nasa.gov/cgi/getfile/A20050012005031.L3b_MO_NSST.nc
