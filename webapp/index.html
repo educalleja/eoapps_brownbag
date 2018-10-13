@@ -18,6 +18,9 @@
     #label_year { 
       font-size: 72px;
     }
+    #table_anomalies {
+      width: 600px;
+    }
     #colorbar {
       width: 400px;
       display: block;
@@ -29,7 +32,8 @@
 <body>
   <img src="static/img/anomalies_sst_2003.png" id="sst_anomalies_img" />
   <div class="menu">
-    <div id="label_year">2013</div>
+    <img src="static/img/table_anomalies.png" id="table_anomalies" style="display: none;" />
+    <div id="label_year" onClick="display_table()">2013</div>
     <input type="range" min="2003" max="2018" value="2013" class="slider" id="slider">
   </div>
   <img src="static/img/colorbar.png" id="colorbar" />
@@ -41,6 +45,9 @@
   slider.oninput = function () {
     image.setAttribute('src', `static/img/anomalies_sst_${this.value}.png`)
     label.innerHTML = this.value;
+  }
+  function display_table() {
+    document.getElementById("table_anomalies").style = 'display: inline-block';
   }
 </script>
 
