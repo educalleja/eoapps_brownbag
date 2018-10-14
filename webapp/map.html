@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+    crossorigin=""></script>
+  <style>
+    #mapid { height: 680px; }
+    </style>
+  <title>OpenLayers example</title>
+</head>
+
+<body>
+  <div id="mapid"></div>
+  <script type="text/javascript">
+    var mymap = L.map('mapid', { crs: L.CRS.EPSG4326 }).setView([-25.865143, 151.209900], 3);
+    var bluemarble = L.tileLayer.wms("http://127.0.0.1:8600/geoserver/eoapp/wms", {
+      layers: 'eoapp:RenderData',
+      format: 'image/jpeg',
+      transparent: true,
+    });
+    mymap.addLayer(bluemarble);
+    var rainfall = L.tileLayer.wms("http://127.0.0.1:8600/geoserver/eoapp/wms", {
+      layers: 'eoapp:rainfall',
+      format: 'image/png',
+      transparent: true,
+      styles: 'anomalies'
+    });
+    mymap.addLayer(rainfall);
+    var baseLayers = {
+      "Earth": bluemarble,
+    };
+    var overlays = {
+      "Rainfall": rainfall,
+    };
+    L.control.layers(baseLayers, overlays).addTo(mymap);
+  </script>
+</body>
+
+</html>
