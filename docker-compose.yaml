@@ -2,6 +2,7 @@ version: "3.2"
 
 volumes:
   ? geoserver-data
+  ? postgis-data
 
 services:
   geoserver:
@@ -31,3 +32,13 @@ services:
         target: /usr/share/nginx/html
     ports:
       - "8000:80"
+  postgis:
+    container_name: postgis
+    image: kartoza/postgis
+    volumes:
+      - postgis-data:/var/lib/postgresql kartoza/postgis
+    ports:
+      - "25432:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASS=docker
