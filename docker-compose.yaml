@@ -32,6 +32,18 @@ services:
         target: /usr/share/nginx/html
     ports:
       - "8000:80"
+  expressjs:
+    container_name: expressjs
+    working_dir: /app/
+    ports:
+      - "3000:3000"
+    build:
+      context: ./tweets
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./tweets
+        target: /app
   postgis:
     container_name: postgis
     image: kartoza/postgis
