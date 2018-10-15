@@ -1,5 +1,5 @@
 const express = require("express");
-const { Client, Pool } = require("pg");
+const { Pool } = require("pg");
 const app = express();
 const port = 3000;
 
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 app.get("/tweets/:lat/:lon", async (req, res) => {
   const client = await pool.connect();
   const tweets = await client.query(
-    `SELECT id, ST_X(location) as Lat, ST_Y(location) as Lon, text FROM tweets WHERE ST_Distance_Sphere(location, ST_MakePoint(${
+    `SELECT id, ST_X(location) as Lat, ST_Y(location) as Lon, text, username, image_url FROM tweets WHERE ST_Distance_Sphere(location, ST_MakePoint(${
       req.params.lat
     },${req.params.lon})) <= 100000`
   );
