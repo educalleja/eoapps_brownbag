@@ -5,7 +5,7 @@
   "main": "loadTweets.js",
   "scripts": {
     "start": "node express.js",
-    "load": "node loadTweets.js",
+    "getTweets": "node getTweets.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.4",
-    "pg": "^7.5.0"
+    "pg": "^7.5.0",
+    "twitter": "^1.7.1"
   }
 }
