@@ -8,13 +8,28 @@
     crossorigin=""></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <style>
-    #mapid { height: 680px; }
+    #mapid { height: 580px; width: 880px; display: inline-block;}
+    #tweet {
+      display: inline-block;
+    }
+    #tweet_username {
+      font-size: 32px;
+    }
+    #tweet_text {
+      font-size: 32px;
+    }
     </style>
   <title>Interactive map</title>
 </head>
 
 <body>
   <div id="mapid"></div>
+  <div id="tweet" style='display: none;'>
+    <img src="" id="user_avatar" />
+    <div id="tweet_username"></div>
+    <div id="tweet_text"></div>
+  </div>
+
   <script type="text/javascript">
     var mymap = L.map('mapid', { crs: L.CRS.EPSG4326 }).setView([-25.865143, 151.209900], 3);
     var bluemarble = L.tileLayer.wms("http://127.0.0.1:8600/geoserver/eoapp/wms", {
@@ -37,15 +52,27 @@
       "Rainfall": rainfall,
     };
     L.control.layers(baseLayers, overlays).addTo(mymap);
+
     mymap.on('click', async function (e) {
       const { lat, lng } = e.latlng;
       const res = await axios.get(`http://localhost:3000/tweets/${lat}/${lng}`);
       const tweets = res.data;
       addTweets(tweets);
     });
+
     var layerMarkers;
     function addTweets(tweets) {
-      const markers = tweets.map(tweet => L.marker([tweet.lat, tweet.lon]))
+      const markers = tweets.map(tweet => {
+        const marker = L.marker([tweet.lat, tweet.lon]);
+        marker.on('click', function (e) {
+          document.getElementById('tweet').style = '';
+          document.getElementById('user_avatar').setAttribute('src', tweet.image_url);
+          document.getElementById('tweet_username').innerHTML = `@${tweet.username}`;
+          document.getElementById('tweet_text').innerHTML = tweet.text;
+
+        });
+        return marker
+      });
       if (!!layerMarkers) mymap.removeLayer(layerMarkers);
       layerMarkers = L.layerGroup(markers);
       layerMarkers.addTo(mymap);
