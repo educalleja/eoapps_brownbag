@@ -1,6 +1,6 @@
 # An introduction to Earth Observation Applications
 
-Source code used to process satellite imagery and provision web services for demonstration purposes during MYOB Brownbag.
+Source code used to process satellite imagery and provision web services for demonstration purposes during [MYOB Brownbag](https://www.youtube.com/watch?v=9SZQCY93iGw).
 
 ## Image processing
 
